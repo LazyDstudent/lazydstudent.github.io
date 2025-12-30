@@ -1,146 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohammed Sultan — Who Am I</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Sultan — Security Research</title>
 
-  <style>
-    :root {
-      --bg: #0b0d12;
-      --card: #131620;
-      --text: #e6e8ee;
-      --muted: #a0a6ba;
-      --accent: #4fd1c5;
-      --border: #1f2433;
-    }
+<style>
+:root {
+  --bg: #0b0d12;
+  --card: #121622;
+  --card-alt: #0f131d;
+  --text: #e6e8ee;
+  --muted: #9aa0b6;
+  --accent: #4fd1c5;
+  --border: #1f2433;
+}
 
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0f1422, #080a12);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 60px 20px;
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      margin-bottom: 24px;
-    }
+.card {
+  background: linear-gradient(180deg, var(--card), var(--card-alt));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 26px;
+}
 
-    h1 { font-size: 1.8rem; margin: 0 0 6px 0; }  /* smaller */
-    h2 { margin-top: 0; font-size: 1.1rem; color: var(--accent); } /* smaller */
-    p { line-height: 1.6; color: var(--muted); font-size: 0.88rem; } /* smaller */
-    ul { padding-left: 18px; color: var(--muted); line-height: 1.6; font-size: 0.88rem; } /* smaller */
-    li { margin-bottom: 8px; }
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 6px;
+}
 
-    .tag {
-      display: inline-block;
-      border: 1px solid var(--border);
-      padding: 4px 10px; /* smaller */
-      border-radius: 999px;
-      font-size: 0.75rem; /* smaller */
-      margin-right: 6px;
-      margin-top: 6px;
-      color: var(--accent);
-      background: #0f131d;
-    }
+h2 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  color: var(--accent);
+  letter-spacing: 0.4px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
+p, li {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
 
-    .skill {
-      background: #0f131d;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
-    }
+ul { padding-left: 18px; }
 
-    .skill strong { color: var(--text); display: block; margin-bottom: 6px; font-size: 0.95rem; }
+.tag {
+  display: inline-block;
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-right: 6px;
+  margin-top: 6px;
+  color: var(--accent);
+  background: #0c1020;
+}
 
-    .highlight { color: var(--accent); font-weight: 600; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
 
-    .status-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #0f131d;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px;
-      margin-top: 12px;
-    }
+.skill {
+  background: #0c1020;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
 
-    button {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 0.85rem;
-    }
+.skill strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
 
-    button:hover { background: rgba(79,209,197,0.1); }
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #6c728a;
-      font-size: 0.85rem;
-    }
+button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
 
-    /* GIF Layouts */
-    .intro {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 20px;
-    }
+button:hover {
+  background: rgba(79,209,197,0.08);
+}
 
-    .intro img { max-width: 220px; border-radius: 12px; }
+.intro {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
-    .anime-eye {
-      float: right;
-      width: 70px;
-      margin-left: 12px;
-    }
+.intro img {
+  max-width: 220px;
+  border-radius: 14px;
+}
 
-    .bg-gif {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.05;
-      z-index: -1;
-      object-fit: cover;
-    }
-  </style>
+.status-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0c1020;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.bg-gif {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.research-meta {
+  font-size: 0.75rem;
+  color: #7f86a3;
+  margin-bottom: 10px;
+}
+
+iframe {
+  width: 100%;
+  height: 520px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #000;
+  margin-top: 18px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: #6c728a;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Background GIF -->
-  <img class="bg-gif" src="https://i.giphy.com/DqiMTFxiXx0VaVZQbF.webp" alt="background accent">
+<img class="bg-gif" src="https://i.giphy.com/DqiMTFxiXx0VaVZQbF.webp" alt="bg">
 
-  <div class="container">
+<div class="container">
 
-   <!-- Header + Intro with GIF -->
+<!-- Intro -->
 <div class="card intro">
-  <img src="https://i.pinimg.com/originals/a8/82/0a/a8820afc0b19a79fcffeb01b86156246.gif" alt="guy looking right">
+  <img src="https://i.pinimg.com/originals/a8/82/0a/a8820afc0b19a79fcffeb01b86156246.gif">
   <div>
     <h1>Mohammed Sultan</h1>
     <p>15 y/o · Ethical Security Researcher · Bug Bounty Hunter</p>
@@ -150,127 +185,90 @@
   </div>
 </div>
 
-
-    <!-- About -->
-    <div class="card">
-      <h2>About</h2>
-      <ul>
-        <li>hi , im a freaky 15 year old i sit infront of my monitor all day looking at code and debugging things .</li>
-        <li>i love to understand how things work at the lowest level , how do computers really work  ? and what can go wrong with them ?</li>
-        <li>how to detect coding mistakes ? how to exploit them ?</li>
-        <li>i started learning at the young age of 11 , and ohh boy it was something fascinating .</li>
-        <li>at 12 i was involved in many SECURITY RESEARCH FIRMS , with some of my friends we took down many big companies we broke the code developers with years of experience wrote and reported those bugs</li>
-        <li>at 13 things may have gone wrong a little bit , i started geetting involved in underground communities not because i was a bad guy to be honest i just wanted to learn new things !</li>
-        <li>at 14 , i started taking things in a serious matter , i started using my skills in actually secruing things that other people use i was happy and felt good</li>
-        <li>at 15 , i WANTED TO TRY MAKING MY FIRST REAL  money OFF OF MY SKILLS :) so i started doing bugbouny it wasnt that good but we got some guap lol &lt;3</li>
-      </ul>
-
-      <p><strong>FUN FACT :</strong></p>
-      <ul>
-        <li>FOR FUN I WENT TO RIYADH BLACK HAT (BUG BOUNTY JUNIOR COMPETETION )</li>
-        <li>without even taking it seriously i won the first place with a prize of 10K SAR</li>
-      </ul>
-    </div>
-
-    <!-- Skills -->
-    <div class="card">
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="skill">
-          <strong>Web Security</strong>
-          <p>Advanced knowledge of web vulnerabilities, logic flaws, and misconfigurations , and deep security resarch in backend systems and authentication systems</p>
-        </div>
-        <div class="skill">
-          <strong>IoT Exploitation</strong>
-          <p>still not that good , but can anaylze firmware and find bugs in some IOT devices</p>
-        </div>
-        <div class="skill">
-          <strong>Low-Level & OS Exploitation</strong>
-          <p>Beginner — learning system internals, memory, and OS fundamentals.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Currently Learning -->
-    <div class="card">
-      <h2>Currently Learning <img src="https://giffiles.alphacoders.com/207/207214.gif" class="anime-eye" alt="red eye"></h2>
-      <p>
-        <span class="highlight">Bare‑Metal Networking with C</span><br>
-        Writing low-level networking code without abstractions to deeply understand
-        protocols, memory, and performance at the system level.
-      </p>
-
-      <div class="status-box">
-        <div class="status" id="statusText">SYSTEM STATUS: LEARNING...</div>
-        <button onclick="toggleStatus()">Toggle</button>
-      </div>
-    </div>
-
-    <footer>
-      BE A FREAK !
-    </footer>
-
-  </div>
-
-
-  <!-- Contact / Collaboration -->
+<!-- About -->
 <div class="card">
-  <h2>Collaboration & Verification</h2>
-
-  <p>
-    If you want <strong>proof of reported vulnerabilities</strong>,
-    <strong>collaboration</strong>, or to discuss <strong>security research</strong>,
-    feel free to reach out.
-  </p>
-
-  <p>
-    I’m open to secure and private communication at : 7mody-the-hacker@proton.me
-  </p>
-
-  <ul>
-    <li>Bug bounty collaboration</li>
-    <li>Security research & vulnerability verification</li>
-    <li>CTFs & learning projects</li>
-  </ul>
-
-  <div style="margin-top: 16px;">
-    <span class="tag">Email</span>
-    <p style="margin: 6px 0;">7mody-the-hacker@proton.me</p>
+<h2>About</h2>
+<ul>
+<li>Started learning low-level and web security concepts at age 11.</li>
+<li>Focused on understanding how systems fail — not just how they work.</li>
+<li>Participated in coordinated vulnerability disclosure with real companies.</li>
+<li>Explored underground knowledge spaces before transitioning fully to ethical research.</li>
+<li>Currently focused on responsible disclosure and professional bug bounty.</li>
+</ul>
 </div>
 
-
-  <div class="card">
-  <h2>Blogs & Research</h2>
-
-  <div class="grid">
-
-    <div class="skill">
-      <strong>Websy</strong>
-      <p>
-        <span class="highlight">ONE OF MY RESEARCHES:</span><br>
-        A deep dive into web security concepts, mistakes, and real-world
-        vulnerability patterns I analyzed and documented.
-      </p>
-
-      <a href="websy.pdf" target="_blank">
-        <button>Read Research (PDF)</button>
-      </a>
-    </div>
-
-  </div>
+<!-- Skills -->
+<div class="card">
+<h2>Core Skills</h2>
+<div class="grid">
+<div class="skill">
+<strong>Web Security Research</strong>
+<p>Authentication logic flaws, access control bypasses, misconfigurations, and backend attack surfaces.</p>
+</div>
+<div class="skill">
+<strong>IoT & Firmware</strong>
+<p>Firmware analysis, basic reverse engineering, vulnerability discovery.</p>
+</div>
+<div class="skill">
+<strong>Low-Level Systems</strong>
+<p>Beginner research into OS internals, memory behavior, and networking fundamentals.</p>
+</div>
+</div>
 </div>
 
+<!-- Learning -->
+<div class="card">
+<h2>Currently Learning</h2>
+<p><span class="highlight">Bare-Metal Networking in C</span><br>
+Studying protocols and memory behavior without abstractions to gain a fundamental understanding of systems.</p>
 
-  <script>
-    let on = true;
-    function toggleStatus() {
-      const el = document.getElementById("statusText");
-      on = !on;
-      el.textContent = on
-        ? "SYSTEM STATUS: LEARNING..."
-        : "SYSTEM STATUS: BREAKING & FIXING THINGS";
-    }
-  </script>
+<div class="status-box">
+<div id="statusText">SYSTEM STATUS: LEARNING...</div>
+<button onclick="toggleStatus()">Toggle</button>
+</div>
+</div>
+
+<!-- Research Blog -->
+<div class="card">
+<h2>Blogs & Research</h2>
+
+<div class="skill">
+<strong>Websy — Web Security Research Notes</strong>
+<div class="research-meta">
+Independent Research · Web Security · PDF Publication
+</div>
+
+<p>
+<span class="highlight">One of my documented security researches.</span><br>
+This paper-style blog explores real-world web vulnerabilities, developer mistakes,
+and security assumptions that break under adversarial thinking.
+Written as structured research notes rather than casual content.
+</p>
+
+<a href="websy.pdf" target="_blank">
+<button>Open Full PDF</button>
+</a>
+
+<iframe src="websy.pdf"></iframe>
+</div>
+</div>
+
+<footer>
+BE A FREAK · THINK IN SYSTEMS · BREAK & FIX
+</footer>
+
+</div>
+
+<script>
+let on = true;
+function toggleStatus() {
+  const el = document.getElementById("statusText");
+  on = !on;
+  el.textContent = on
+    ? "SYSTEM STATUS: LEARNING..."
+    : "SYSTEM STATUS: ANALYZING & HARDENING SYSTEMS";
+}
+</script>
 
 </body>
 </html>
