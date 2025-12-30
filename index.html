@@ -7,12 +7,12 @@
 
   <style>
     :root {
-      --bg: #0e0f14;
-      --card: #151823;
+      --bg: #0b0d12;
+      --card: #131620;
       --text: #e6e8ee;
-      --muted: #9aa0b3;
-      --accent: #6cffc1;
-      --accent-2: #6ca8ff;
+      --muted: #a0a6ba;
+      --accent: #4fd1c5;
+      --border: #1f2433;
     }
 
     * {
@@ -21,33 +21,33 @@
 
     body {
       margin: 0;
-      background: radial-gradient(circle at top, #14162a, var(--bg));
+      background: var(--bg);
       color: var(--text);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 880px;
       margin: auto;
       padding: 60px 20px;
     }
 
     .card {
-      background: linear-gradient(180deg, var(--card), #11131c);
-      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 28px;
       margin-bottom: 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
     h1 {
       font-size: 2.2rem;
-      margin: 0;
+      margin: 0 0 6px 0;
     }
 
     h2 {
       margin-top: 0;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: var(--accent);
     }
 
@@ -56,15 +56,26 @@
       color: var(--muted);
     }
 
+    ul {
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
     .tag {
       display: inline-block;
-      background: rgba(108,255,193,0.1);
-      color: var(--accent);
+      border: 1px solid var(--border);
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.85rem;
       margin-right: 8px;
       margin-top: 8px;
+      color: var(--accent);
+      background: #0f131d;
     }
 
     .grid {
@@ -74,8 +85,9 @@
     }
 
     .skill {
-      background: #0f1220;
-      border-radius: 12px;
+      background: #0f131d;
+      border: 1px solid var(--border);
+      border-radius: 10px;
       padding: 16px;
     }
 
@@ -86,8 +98,38 @@
     }
 
     .highlight {
-      color: var(--accent-2);
+      color: var(--accent);
       font-weight: 600;
+    }
+
+    .status-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #0f131d;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 12px;
+    }
+
+    .status {
+      font-family: monospace;
+      color: #7cffb2;
+    }
+
+    button {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    button:hover {
+      background: rgba(79,209,197,0.1);
     }
 
     footer {
@@ -104,9 +146,7 @@
     <!-- Header -->
     <div class="card">
       <h1>Mohammed Sultan</h1>
-      <p>
-        15 y/o · Ethical Security Researcher · Bug Bounty Hunter
-      </p>
+      <p>15 y/o · Ethical Security Researcher · Bug Bounty Hunter</p>
 
       <span class="tag">Black Hat Junior — 1st Place</span>
       <span class="tag">Web Security</span>
@@ -116,23 +156,22 @@
     <!-- About -->
     <div class="card">
       <h2>About</h2>
-      <p>
-        hi , im a freaky 15 year old i sit infront of my monitor all day looking at code and debugging things . 
-        i love to understand how things work at the lowest level , how do computers really work  ? and what can go wrong with them ? 
-        how to detect coding mistakes ? how to exploit them ? 
-        i started learning at the young age of 11 , and ohh boy it was something fascinating . 
-        at 12 i was involved in many SECURITY RESEARCH FIRMS , with some of my friends we took down many big companies we broke the code developers with years of experience wrote and reported those bugs
-        at 13 things may have gone wrong a little bit , i started geetting involved in underground communities not because i was a bad guy to be honest i just wanted to learn new things !
-        at 14 , i started taking things in a serious matter , i started using my skills in actually secruing things that other people use i was happy and felt good
-        at 15 , i needed money :) so i started doing bugbouny it wasnt that good but we got some guap lol <3
-      
-        
-      </p>
-      <p>
-       FUN FACT  : 
-        FOR FUN I WENT TO RIYADH BLACK HAT (BUG BOUNTY JUNIOR COMPETETION )
-        without even taking it seriously i won the first place with a prize of 10K SAR 
-      </p>
+      <ul>
+        <li>hi , im a freaky 15 year old i sit infront of my monitor all day looking at code and debugging things .</li>
+        <li>i love to understand how things work at the lowest level , how do computers really work  ? and what can go wrong with them ?</li>
+        <li>how to detect coding mistakes ? how to exploit them ?</li>
+        <li>i started learning at the young age of 11 , and ohh boy it was something fascinating .</li>
+        <li>at 12 i was involved in many SECURITY RESEARCH FIRMS , with some of my friends we took down many big companies we broke the code developers with years of experience wrote and reported those bugs</li>
+        <li>at 13 things may have gone wrong a little bit , i started geetting involved in underground communities not because i was a bad guy to be honest i just wanted to learn new things !</li>
+        <li>at 14 , i started taking things in a serious matter , i started using my skills in actually secruing things that other people use i was happy and felt good</li>
+        <li>at 15 , i needed money :) so i started doing bugbouny it wasnt that good but we got some guap lol &lt;3</li>
+      </ul>
+
+      <p><strong>FUN FACT :</strong></p>
+      <ul>
+        <li>FOR FUN I WENT TO RIYADH BLACK HAT (BUG BOUNTY JUNIOR COMPETETION )</li>
+        <li>without even taking it seriously i won the first place with a prize of 10K SAR</li>
+      </ul>
     </div>
 
     <!-- Skills -->
@@ -141,7 +180,7 @@
       <div class="grid">
         <div class="skill">
           <strong>Web Security</strong>
-          <p>Advanced knowledge of web vulnerabilities, logic flaws, and misconfigurations , and deep security resarch in backend systems and authentication systems </p>
+          <p>Advanced knowledge of web vulnerabilities, logic flaws, and misconfigurations , and deep security resarch in backend systems and authentication systems</p>
         </div>
         <div class="skill">
           <strong>IoT Exploitation</strong>
@@ -162,13 +201,29 @@
         Writing low-level networking code without abstractions to deeply understand
         protocols, memory, and performance at the system level.
       </p>
+
+      <!-- Cool Game‑like Element -->
+      <div class="status-box">
+        <div class="status" id="statusText">SYSTEM STATUS: LEARNING...</div>
+        <button onclick="toggleStatus()">Toggle</button>
+      </div>
     </div>
 
-    <!-- Footer -->
     <footer>
       BE A FREAK !
     </footer>
 
   </div>
+
+  <script>
+    let on = true;
+    function toggleStatus() {
+      const el = document.getElementById("statusText");
+      on = !on;
+      el.textContent = on
+        ? "SYSTEM STATUS: LEARNING..."
+        : "SYSTEM STATUS: BREAKING & FIXING THINGS";
+    }
+  </script>
 </body>
 </html>
