@@ -8,6 +8,8 @@
 <style>
 :root {
   --bg: #0b0d12;
+  --card: #121622;
+  --card-alt: #0f131d;
   --text: #e6e8ee;
   --muted: #9aa0b6;
   --accent: #4fd1c5;
@@ -18,198 +20,278 @@
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: radial-gradient(circle at top, #0f1422, #080a12);
   color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .container {
-  max-width: 760px;
+  max-width: 960px;
   margin: auto;
   padding: 60px 20px;
 }
 
-/* Header */
-header {
-  margin-bottom: 80px;
+.card {
+  background: linear-gradient(180deg, var(--card), var(--card-alt));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 26px;
 }
 
-header h1 {
-  font-size: 2rem;
+h1 {
+  font-size: 1.9rem;
   margin: 0 0 6px;
 }
 
-header p {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-bottom: 12px;
+h2 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  color: var(--accent);
+  letter-spacing: 0.4px;
 }
+
+p, li {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+ul { padding-left: 18px; }
 
 .tag {
   display: inline-block;
-  font-size: 0.7rem;
   border: 1px solid var(--border);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
-  margin-right: 6px;
-  color: var(--accent);
-}
-
-/* Section headers */
-section {
-  margin-bottom: 90px;
-}
-
-section h2 {
-  font-size: 1.4rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 8px;
-  margin-bottom: 30px;
-}
-
-/* About */
-.about p {
-  line-height: 1.75;
-  color: #cfd3e6;
-  margin-bottom: 16px;
-}
-
-/* Research blog */
-article h3 {
-  font-size: 1.25rem;
-  margin-bottom: 6px;
-}
-
-.meta {
   font-size: 0.75rem;
-  color: #7d839c;
-  margin-bottom: 20px;
-}
-
-article p {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: #cfd3e6;
-  margin-bottom: 18px;
-}
-
-article a {
+  margin-right: 6px;
+  margin-top: 6px;
   color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--accent);
+  background: #0c1020;
 }
 
-article a:hover {
-  opacity: 0.85;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.skill {
+  background: #0c1020;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.skill strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+button:hover {
+  background: rgba(79,209,197,0.08);
+}
+
+.intro {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.intro img {
+  max-width: 220px;
+  border-radius: 14px;
+}
+
+.status-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0c1020;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.bg-gif {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.research-meta {
+  font-size: 0.75rem;
+  color: #7f86a3;
+  margin-bottom: 10px;
 }
 
 iframe {
   width: 100%;
-  height: 620px;
+  height: 520px;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  margin-top: 30px;
+  background: #000;
+  margin-top: 18px;
 }
 
-/* Contact */
-.contact p {
-  color: #cfd3e6;
-  line-height: 1.7;
-}
-
-.contact .email {
-  margin-top: 16px;
-  font-size: 0.95rem;
-  color: var(--accent);
-}
-
-/* Footer */
 footer {
-  margin-top: 120px;
+  text-align: center;
+  margin-top: 40px;
   font-size: 0.8rem;
   color: #6c728a;
-  text-align: center;
 }
 </style>
 </head>
 
 <body>
 
+<img class="bg-gif" src="https://i.giphy.com/DqiMTFxiXx0VaVZQbF.webp" alt="bg">
+
 <div class="container">
 
-<header>
-  <h1>Mohammed Sultan</h1>
-  <p>Ethical Security Researcher · Bug Bounty Hunter</p>
-
-  <span class="tag">Web Security</span>
-  <span class="tag">IoT Security</span>
-  <span class="tag">Black Hat Junior — 1st Place</span>
-</header>
-
-<section class="about">
-  <h2>About</h2>
-
-  <p>
-    I started learning computer security at a young age with a focus on understanding
-    how systems fail rather than how they are intended to work.
-    My interests revolve around breaking assumptions made by developers,
-    studying edge cases, and documenting recurring security mistakes.
-  </p>
-
-  <p>
-    Over time, this evolved into responsible security research, coordinated disclosure,
-    and bug bounty work. I am particularly interested in authentication systems,
-    trust boundaries, and backend logic vulnerabilities.
-  </p>
-</section>
-
-<section class="research">
-  <h2>Research</h2>
-
-  <article>
-    <h3>Websy — Notes on Web Security Failures</h3>
-    <div class="meta">
-      Independent Research · Web Security · PDF Publication
-    </div>
-
-    <p>
-      This document is a collection of research notes based on real-world
-      web application testing and vulnerability discovery.
-      The intent is not exploitation, but analysis of <em>why</em>
-      security assumptions repeatedly fail in production systems.
-    </p>
-
-    <p>
-      Topics include authentication logic flaws, authorization bypasses,
-      trust boundary violations, and misconfigurations that appear
-      secure in theory but collapse under adversarial thinking.
-    </p>
-
-    <p>
-      <a href="websy.pdf" target="_blank">Read full research (PDF)</a>
-    </p>
-
-    <iframe src="websy.pdf"></iframe>
-  </article>
-</section>
-
-<section class="contact">
-  <h2>Contact</h2>
-
-  <p>
-    For vulnerability verification, security research collaboration,
-    or technical discussion, you may contact me through secure email.
-  </p>
-
-  <div class="email">
-    7mody-the-hacker@proton.me
+<!-- Intro -->
+<div class="card intro">
+  <img src="https://i.pinimg.com/originals/a8/82/0a/a8820afc0b19a79fcffeb01b86156246.gif">
+  <div>
+    <h1>Mohammed Sultan</h1>
+    <p>15 y/o · Ethical Security Researcher · Bug Bounty Hunter</p>
+    <span class="tag">Black Hat Junior — 1st Place</span>
+    <span class="tag">Web Security</span>
+    <span class="tag">IoT Security</span>
   </div>
-</section>
+</div>
+
+<!-- About -->
+<div class="card">
+<h2>About</h2>
+<ul>
+<li>Started learning low-level and web security concepts at age 11.</li>
+<li>Focused on understanding how systems fail — not just how they work.</li>
+<li>Participated in coordinated vulnerability disclosure with real companies.</li>
+<li>Explored underground knowledge spaces before transitioning fully to ethical research.</li>
+<li>Currently focused on responsible disclosure and professional bug bounty.</li>
+</ul>
+</div>
+
+<!-- Skills -->
+<div class="card">
+<h2>Core Skills</h2>
+<div class="grid">
+<div class="skill">
+<strong>Web Security Research</strong>
+<p>Authentication logic flaws, access control bypasses, misconfigurations, and backend attack surfaces.</p>
+</div>
+<div class="skill">
+<strong>IoT & Firmware</strong>
+<p>Firmware analysis, basic reverse engineering, vulnerability discovery.</p>
+</div>
+<div class="skill">
+<strong>Low-Level Systems</strong>
+<p>Beginner research into OS internals, memory behavior, and networking fundamentals.</p>
+</div>
+</div>
+</div>
+
+<!-- Learning -->
+<div class="card">
+<h2>Currently Learning</h2>
+<p><span class="highlight">Bare-Metal Networking in C</span><br>
+Studying protocols and memory behavior without abstractions to gain a fundamental understanding of systems.</p>
+
+<div class="status-box">
+<div id="statusText">SYSTEM STATUS: LEARNING...</div>
+<button onclick="toggleStatus()">Toggle</button>
+</div>
+</div>
+
+<!-- Research Blog -->
+<div class="card">
+<h2>Blogs & Research</h2>
+
+<div class="skill">
+<strong>anything goofy i think aboiut will be posted here : </strong>
+<div class="research-meta">
+Independent Research · Web Security · PDF Publication
+</div>
+
+<p>
+<span class="highlight">Rsearch 1 </span><br>
+i made this paper after many bugs i found targeting stupid parsers , and how do they deal with things 
+</p>
+
+<a href="websy.pdf" target="_blank">
+<button>Open Full PDF</button>
+</a>
+
+<iframe src="websy.pdf"></iframe>
+</div>
+
+<!-- Contact & Collaboration -->
+<div class="card">
+  <h2>Contact & Collaboration</h2>
+
+  <p>
+    For <span class="highlight">vulnerability verification</span>,
+    <span class="highlight">security research collaboration</span>,
+    or professional discussion, feel free to reach out.
+  </p>
+
+  <ul>
+    <li>Bug bounty collaboration & coordinated disclosure</li>
+    <li>Independent security research verification</li>
+    <li>CTFs, learning projects, and technical discussions</li>
+  </ul>
+
+  <div style="margin-top: 18px;">
+    <span class="tag">Secure Email</span>
+    <p style="margin: 8px 0; font-size: 0.9rem;">
+      7mody-the-hacker@proton.me
+    </p>
+  </div>
+</div>
+
+  </div>
 
 <footer>
-  computers , were the only place that we asked it to do something and never said no <3
+COMPUTERS NEVER SAY NO !
 </footer>
 
 </div>
+  
+<script>
+let on = true;
+function toggleStatus() {
+  const el = document.getElementById("statusText");
+  on = !on;
+  el.textContent = on
+    ? "SYSTEM STATUS: LEARNING..."
+    : "SYSTEM STATUS: ANALYZING & HARDENING SYSTEMS";
+}
+</script>
 
 </body>
 </html>
