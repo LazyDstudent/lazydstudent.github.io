@@ -15,9 +15,7 @@
       --border: #1f2433;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -27,7 +25,7 @@
     }
 
     .container {
-      max-width: 880px;
+      max-width: 900px;
       margin: auto;
       padding: 60px 20px;
     }
@@ -40,31 +38,11 @@
       margin-bottom: 24px;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin: 0 0 6px 0;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 1.25rem;
-      color: var(--accent);
-    }
-
-    p {
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    ul {
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
+    h1 { font-size: 2.2rem; margin: 0 0 6px 0; }
+    h2 { margin-top: 0; font-size: 1.25rem; color: var(--accent); }
+    p { line-height: 1.7; color: var(--muted); }
+    ul { padding-left: 18px; color: var(--muted); line-height: 1.7; }
+    li { margin-bottom: 10px; }
 
     .tag {
       display: inline-block;
@@ -91,16 +69,9 @@
       padding: 16px;
     }
 
-    .skill strong {
-      color: var(--text);
-      display: block;
-      margin-bottom: 6px;
-    }
+    .skill strong { color: var(--text); display: block; margin-bottom: 6px; }
 
-    .highlight {
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .highlight { color: var(--accent); font-weight: 600; }
 
     .status-box {
       display: flex;
@@ -113,11 +84,6 @@
       margin-top: 12px;
     }
 
-    .status {
-      font-family: monospace;
-      color: #7cffb2;
-    }
-
     button {
       background: transparent;
       border: 1px solid var(--accent);
@@ -128,9 +94,7 @@
       font-family: inherit;
     }
 
-    button:hover {
-      background: rgba(79,209,197,0.1);
-    }
+    button:hover { background: rgba(79,209,197,0.1); }
 
     footer {
       text-align: center;
@@ -138,19 +102,52 @@
       color: #6c728a;
       font-size: 0.9rem;
     }
+
+    /* GIF Layouts */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .intro img { max-width: 200px; border-radius: 12px; }
+
+    .anime-eye {
+      float: right;
+      width: 80px;
+      margin-left: 12px;
+    }
+
+    /* Optional: background GIF as accent */
+    .bg-gif {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      z-index: -1;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Background GIF -->
+  <img class="bg-gif" src="https://i.giphy.com/DqiMTFxiXx0VaVZQbF.webp" alt="background accent">
+
   <div class="container">
 
-    <!-- Header -->
-    <div class="card">
-      <h1>Mohammed Sultan</h1>
-      <p>15 y/o · Ethical Security Researcher · Bug Bounty Hunter</p>
-
-      <span class="tag">Black Hat Junior — 1st Place</span>
-      <span class="tag">Web Security</span>
-      <span class="tag">IoT Security</span>
+    <!-- Header + Intro with GIF -->
+    <div class="card intro">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExemNlZnp4aTNucndsY3Ezc2w4aHY4ZzY3ZDB3cHI2ZmM0NnB1eWR3MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0NVPQZG9zMiqKiuBTo/giphy.gif" alt="guy looking right">
+      <div>
+        <h1>Mohammed Sultan</h1>
+        <p>15 y/o · Ethical Security Researcher · Bug Bounty Hunter</p>
+        <span class="tag">Black Hat Junior — 1st Place</span>
+        <span class="tag">Web Security</span>
+        <span class="tag">IoT Security</span>
+      </div>
     </div>
 
     <!-- About -->
@@ -193,16 +190,15 @@
       </div>
     </div>
 
-    <!-- Learning -->
+    <!-- Currently Learning -->
     <div class="card">
-      <h2>Currently Learning</h2>
+      <h2>Currently Learning <img src="https://giffiles.alphacoders.com/207/207214.gif" class="anime-eye" alt="red eye"></h2>
       <p>
         <span class="highlight">Bare‑Metal Networking with C</span><br>
         Writing low-level networking code without abstractions to deeply understand
         protocols, memory, and performance at the system level.
       </p>
 
-      <!-- Cool Game‑like Element -->
       <div class="status-box">
         <div class="status" id="statusText">SYSTEM STATUS: LEARNING...</div>
         <button onclick="toggleStatus()">Toggle</button>
@@ -225,5 +221,6 @@
         : "SYSTEM STATUS: BREAKING & FIXING THINGS";
     }
   </script>
+
 </body>
 </html>
