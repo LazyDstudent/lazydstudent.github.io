@@ -3,142 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WHOAMI — Mohammed Sultan</title>
+  <title>Mohammed Sultan — Who Am I</title>
 
   <style>
+    :root {
+      --bg: #0e0f14;
+      --card: #151823;
+      --text: #e6e8ee;
+      --muted: #9aa0b3;
+      --accent: #6cffc1;
+      --accent-2: #6ca8ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background-color: #0b0f0c;
-      color: #00ff9c;
-      font-family: "Courier New", monospace;
+      background: radial-gradient(circle at top, #14162a, var(--bg));
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
-    h1, h2 {
-      color: #00ffaa;
+    .card {
+      background: linear-gradient(180deg, var(--card), #11131c);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
-    h1::before {
-      content: "$ whoami";
-      display: block;
-      color: #00ff9c;
-      margin-bottom: 10px;
+    h1 {
+      font-size: 2.2rem;
+      margin: 0;
     }
 
-    .terminal {
-      background: #050807;
-      border: 1px solid #00ff9c;
-      padding: 20px;
-      margin-top: 30px;
-      box-shadow: 0 0 20px rgba(0,255,156,0.2);
+    h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--accent);
     }
 
     p {
-      line-height: 1.6;
-      color: #c9ffe8;
+      line-height: 1.7;
+      color: var(--muted);
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
+    .tag {
+      display: inline-block;
+      background: rgba(108,255,193,0.1);
+      color: var(--accent);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-right: 8px;
+      margin-top: 8px;
     }
 
-    ul li::before {
-      content: "➜ ";
-      color: #00ff9c;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .skill {
+      background: #0f1220;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .skill strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 6px;
     }
 
     .highlight {
-      color: #00ffaa;
-      font-weight: bold;
+      color: var(--accent-2);
+      font-weight: 600;
     }
 
     footer {
+      text-align: center;
       margin-top: 40px;
-      font-size: 0.9em;
-      color: #6affc7;
-      opacity: 0.8;
+      color: #6c728a;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <h1>Mohammed Sultan</h1>
-    <p>
-      Age: <span class="highlight">15</span><br>
-      Ethical Security Researcher & Bug Bounty Hunter
-    </p>
-
-    <div class="terminal">
-      <h2># About Me</h2>
+    <!-- Header -->
+    <div class="card">
+      <h1>Mohammed Sultan</h1>
       <p>
-        I am Mohammed Sultan, a young and passionate cybersecurity researcher focused on
-        discovering and responsibly reporting security vulnerabilities.
+        15 y/o · Ethical Security Researcher · Bug Bounty Hunter
+      </p>
+
+      <span class="tag">Black Hat Junior — 1st Place</span>
+      <span class="tag">Web Security</span>
+      <span class="tag">IoT Security</span>
+    </div>
+
+    <!-- About -->
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        I’m a young cybersecurity researcher focused on understanding how systems
+        actually work — and how they fail.
       </p>
       <p>
-        I am the <span class="highlight">1st Place Winner of Black Hat Junior</span>, and I actively
-        participate in authorized bug bounty programs to help organizations improve their security.
+        I participate in authorized bug bounty programs and responsible disclosure,
+        helping organizations identify and fix security issues before they can be abused.
       </p>
     </div>
 
-    <div class="terminal">
-      <h2># Achievements</h2>
-      <ul>
-        <li>🥇 Black Hat Junior — 1st Place Winner</li>
-        <li>Discovered multiple critical vulnerabilities through responsible disclosure</li>
-        <li>Reported security issues affecting real-world infrastructure</li>
-      </ul>
+    <!-- Skills -->
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="skill">
+          <strong>Web Security</strong>
+          <p>Advanced knowledge of web vulnerabilities, logic flaws, and misconfigurations.</p>
+        </div>
+        <div class="skill">
+          <strong>IoT Exploitation</strong>
+          <p>Analyzing embedded devices, firmware behavior, and attack surfaces.</p>
+        </div>
+        <div class="skill">
+          <strong>Low-Level & OS Exploitation</strong>
+          <p>Beginner — learning system internals, memory, and OS fundamentals.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="terminal">
-      <h2># Skills & Expertise</h2>
-      <ul>
-        <li><span class="highlight">Web Security</span> — Master level</li>
-        <li><span class="highlight">IoT Exploitation</span> — Medium expertise</li>
-        <li><span class="highlight">Low-Level & OS Exploitation</span> — Beginner</li>
-      </ul>
-    </div>
-
-    <div class="terminal">
-      <h2># What I Do</h2>
+    <!-- Learning -->
+    <div class="card">
+      <h2>Currently Learning</h2>
       <p>
-        <span class="highlight">Bug Bounty:</span><br>
-        Bug bounty programs allow security researchers to legally test systems
-        and report vulnerabilities in exchange for recognition or rewards.
-        All testing is performed with permission and follows responsible disclosure.
-      </p>
-
-      <p>
-        <span class="highlight">Web Security:</span><br>
-        Finding and understanding vulnerabilities in web applications such as logic flaws,
-        authentication issues, and insecure configurations.
-      </p>
-
-      <p>
-        <span class="highlight">IoT Security:</span><br>
-        Analyzing smart devices and embedded systems to identify security weaknesses
-        that could impact real-world environments.
-      </p>
-
-      <p>
-        <span class="highlight">Low-Level & OS Exploitation:</span><br>
-        Learning how operating systems and low-level components work to better understand
-        memory safety, system behavior, and exploit mitigation techniques.
+        <span class="highlight">Bare‑Metal Networking with C</span><br>
+        Writing low-level networking code without abstractions to deeply understand
+        protocols, memory, and performance at the system level.
       </p>
     </div>
 
+    <!-- Footer -->
     <footer>
-      <p>
-        Status: <span class="highlight">Learning • Building • Securing</span><br>
-        “Hack to learn. Secure to protect.”
-      </p>
+      Building fundamentals • Learning deeply • Staying ethical
     </footer>
 
   </div>
