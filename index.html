@@ -14,20 +14,22 @@
     overflow-x: hidden;
   }
 
-  /* Matrix canvas — full background */
-  #matrix {
+  /* GIF background — very dim */
+  .bg-gif {
     position: fixed;
     inset: 0;
     z-index: 0;
-    opacity: 0.18;
+    background: url('https://c.tenor.com/3IMnx3vl2LwAAAAC/tenor.gif') center center / cover no-repeat;
+    opacity: 0.50;
+    pointer-events: none;
   }
 
-  /* Overlay to dim bottom of matrix */
-  .fade {
+  /* Dark overlay on top */
+  .bg-overlay {
     position: fixed;
     inset: 0;
-    background: radial-gradient(ellipse at center, transparent 30%, #080b0f 100%);
     z-index: 1;
+    background: rgba(8, 11, 15, 0.50);
     pointer-events: none;
   }
 
@@ -36,49 +38,49 @@
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1px;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.03);
     min-height: 100vh;
     padding: 1px;
   }
 
-  /* POST BOX */
+  /* BOX — perfect square */
   .box {
-    background: rgba(8, 11, 15, 0.85);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 36px 32px;
+    background: rgba(8, 11, 15, 0.80);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 32px;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 200px;
-    backdrop-filter: blur(4px);
+    aspect-ratio: 1 / 1;
+    backdrop-filter: blur(6px);
   }
 
   .box:hover {
-    background: rgba(255,255,255,0.04);
-    border-color: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.18);
   }
 
   .box-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    color: #e0e0e0;
-    line-height: 1.35;
+    color: #ddd;
+    line-height: 1.4;
     flex: 1;
   }
 
   .box-meta {
-    margin-top: 28px;
+    margin-top: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
-    color: rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.22);
     letter-spacing: 0.04em;
   }
 
@@ -87,14 +89,14 @@
     font-size: 9px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 2px 6px;
   }
-  .box-sev.critical { color: rgba(255,100,80,0.7); border-color: rgba(255,100,80,0.2); }
-  .box-sev.high     { color: rgba(255,180,60,0.6); border-color: rgba(255,180,60,0.2); }
+  .box-sev.critical { color: rgba(255,100,80,0.65); border-color: rgba(255,100,80,0.2); }
+  .box-sev.high     { color: rgba(255,180,60,0.55); border-color: rgba(255,180,60,0.18); }
 
-  /* Empty state — just a dim cursor */
+  /* Empty */
   .empty {
     grid-column: 1/-1;
     display: flex;
@@ -104,12 +106,12 @@
   }
   .cursor {
     width: 2px; height: 32px;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
     animation: blink 1s infinite;
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-  /* MODAL — iframe fullscreen */
+  /* MODAL */
   .modal {
     position: fixed;
     inset: 0;
@@ -121,75 +123,56 @@
   .modal.open { display: flex; }
 
   .modal-bar {
-    height: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    height: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
     display: flex;
     align-items: center;
     padding: 0 28px;
     flex-shrink: 0;
+    background: rgba(8,11,15,0.98);
   }
 
   .modal-back {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: rgba(255,255,255,0.25);
-    background: none; border: none;
-    cursor: pointer; letter-spacing: 0.05em;
-    transition: color 0.15s;
-    padding: 0;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    background: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: all 0.15s;
+    padding: 5px 14px;
   }
-  .modal-back:hover { color: rgba(255,255,255,0.6); }
+  .modal-back:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.3); }
 
-  #postFrame { flex: 1; border: none; width: 100%; }
+  #postFrame { flex: 1; border: none; width: 100%; background: #fafaf8; }
 </style>
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
-<div class="fade"></div>
+<div class="bg-gif"></div>
+<div class="bg-overlay"></div>
 
 <div class="grid" id="grid"></div>
 
-<!-- Reader -->
 <div class="modal" id="modal">
   <div class="modal-bar">
-    <button class="modal-back" onclick="close()">←</button>
+    <button class="modal-back" id="backBtn">← back</button>
   </div>
   <iframe id="postFrame" src="about:blank"></iframe>
 </div>
 
 <script>
-// ── MATRIX RAIN ──
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
-const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノABCDEF'.split('');
-let drops = [];
-
-function initMatrix() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-  const cols = Math.floor(canvas.width / 16);
-  drops = Array(cols).fill(1);
+// Named closeModal — avoids conflict with window.close()
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('postFrame').src = 'about:blank';
+  document.body.style.overflow = '';
 }
 
-function drawMatrix() {
-  ctx.fillStyle = 'rgba(8,11,15,0.05)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = '#00ff41';
-  ctx.font = '13px IBM Plex Mono, monospace';
-  drops.forEach((y, i) => {
-    const char = chars[Math.floor(Math.random() * chars.length)];
-    ctx.fillText(char, i * 16, y * 16);
-    if(y * 16 > canvas.height && Math.random() > 0.975) drops[i] = 0;
-    drops[i]++;
-  });
-}
+document.getElementById('backBtn').addEventListener('click', closeModal);
+document.addEventListener('keydown', k => { if(k.key === 'Escape') closeModal(); });
 
-initMatrix();
-setInterval(drawMatrix, 50);
-window.addEventListener('resize', initMatrix);
-
-// ── POSTS ──
 async function load() {
   let posts = [];
   try {
@@ -204,34 +187,27 @@ async function load() {
     return;
   }
 
-  grid.innerHTML = posts.map((p, i) => `
-    <div class="box" onclick="open_('${e(p.file)}','${e(p.title)}')">
-      <div class="box-title">${e(p.title)}</div>
+  grid.innerHTML = posts.map(p => `
+    <div class="box" onclick="openPost('${esc(p.file)}')">
+      <div class="box-title">${esc(p.title)}</div>
       <div class="box-meta">
-        <span>${e(p.date||'')}</span>
+        <span>${esc(p.date||'')}</span>
         ${p.severity ? `<span class="box-sev ${p.severity.toLowerCase()}">${p.severity.toUpperCase()}</span>` : ''}
       </div>
     </div>`).join('');
 }
 
-function open_(file, title) {
+function openPost(file) {
   const src = file.startsWith('http') ? file : 'posts/' + file;
   document.getElementById('postFrame').src = src;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function close() {
-  document.getElementById('modal').classList.remove('open');
-  document.getElementById('postFrame').src = 'about:blank';
-  document.body.style.overflow = '';
-}
-
-function e(s) {
+function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-document.addEventListener('keydown', k => { if(k.key==='Escape') close(); });
 load();
 </script>
 </body>
